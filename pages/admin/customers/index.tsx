@@ -97,7 +97,7 @@ const ProductsPage: FC = () => {
                     <Button block type='primary' onClick={() => router.push('/admin/customers/create')}>Create</Button>
                 </Col>
             </Row>
-            <Table columns={columns} dataSource={data} />
+            <Table rowKey={record => record.id} columns={columns} dataSource={data} />
         </Card>
     )
 }

@@ -10,9 +10,9 @@ const ProtectRoute = ({ children }: PropsWithChildren<Props>) => {
     const { user } = useAuthContext();
     const router = useRouter()
     const path = router.pathname.split('/')
-    if (path[1] === 'admin' && user.role !== "admin") {
-        router.replace('/')
-        return < Home />
+    if (path[1] === 'admin' && user.role !== "admin" && path.length > 2) {
+        typeof window !== 'undefined' && router.replace('/')
+        return <Home />
     }
     return children
 };

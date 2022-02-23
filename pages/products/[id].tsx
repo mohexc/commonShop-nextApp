@@ -1,6 +1,7 @@
+import { NextPage } from 'next'
 import React, { FC } from 'react'
 
-const ProductDetailPage: FC = () => {
+const ProductDetailPage: NextPage = () => {
     return (
         <div>ProductDetailPage</div>
     )

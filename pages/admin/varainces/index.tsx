@@ -51,8 +51,7 @@ const ProductsPage: FC = () => {
                     icon={<DownOutlined />}
                     overlay={(
                         <Menu>
-                            <Menu.Item key="edite">Edit</Menu.Item>
-                            <Menu.Item key="view" onClick={() => router.push(`/admin/customers/${record.id}`)}>View</Menu.Item>
+                            <Menu.Item key="view" onClick={() => router.push(`/admin/customers/${record.id}`)}>View/Edit</Menu.Item>
                             <Menu.Item key="delete">Delete</Menu.Item>
                         </Menu>
                     )}
@@ -97,7 +96,7 @@ const ProductsPage: FC = () => {
                     <Button block type='primary' onClick={() => router.push('/admin/customers/create')}>Create</Button>
                 </Col>
             </Row>
-            <Table columns={columns} dataSource={data} />
+            <Table rowKey={record => record.id} columns={columns} dataSource={data} />
         </Card>
     )
 }

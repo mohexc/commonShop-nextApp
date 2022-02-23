@@ -4,28 +4,28 @@ import React, { FC, useContext, useEffect, useState } from "react";
 interface CurrentUser {
     id: number;
     username: string;
+    password: string;
+    role: string;
 }
 
 interface ContextInterface {
     user: any;
-    isLoading: boolean;
 }
 
 const Context = React.createContext<ContextInterface | null>(null);
 
 const AuthContext: FC = ({ children }) => {
-    const [user, setUser] = useState({
+    const [user, setUser] = useState<CurrentUser | null>({
+        id: 1,
         username: 'admin',
         password: '1234',
-        role: 'admin3'
+        role: 'admin'
     })
-    const [isLoading, setIsLoading] = useState(true)
 
     return (
         <Context.Provider
             value={{
                 user,
-                isLoading
             }}
         >
             {children}
